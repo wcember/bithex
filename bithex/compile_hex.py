@@ -272,6 +272,21 @@ byte_dictionary = {
 }
 
 def compile_hex(hex_string):
+    '''Compile a hex string into Script.
+
+    Args:
+      hex_string(str): A string or unicode string that is the hex
+        representation of a bitcoin script
+
+    Returns:
+      str: bitcoin script
+
+    Raises:
+      FILL THIS OUT
+
+    Example:
+      FILL THIS OUT
+    '''
     answer_list = []
     counter = 0
     end = len(hex_string)
