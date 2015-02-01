@@ -1,10 +1,9 @@
 from distutils.core import setup
 
 setup(
-    name='epub',
+    name='bithex',
     version='0.1',
-    packages=['epub',],
-    package_data={'epub': ['epub_templates/*',]},
-    license='',
+    packages=['bithex',],
+    license='MIT',
     long_description=open('README.txt').read(),
 )
