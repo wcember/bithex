@@ -10,5 +10,5 @@ setup(
     license='MIT',
     long_description=open('README.txt').read(),
     url='https://github.com/wcember/bithex',
-    version='0.1',
+    version='1.0',
 )
