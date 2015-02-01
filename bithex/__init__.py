@@ -1,1 +1,1 @@
-from hex_to_script import hex_to_script
+from hex_to_script import compile_hex

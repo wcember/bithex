@@ -1,8 +1,8 @@
 import unittest
 
-from hex_to_script import hex_to_script
+from compile_hex import compile_hex
 
-class HexToScriptTests(unittest.TestCase):
+class CompileHexTests(unittest.TestCase):
     def setUp(self):
         self.input_list = [
         'aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087',
@@ -20,7 +20,7 @@ class HexToScriptTests(unittest.TestCase):
         ]
     def test_hex_to_script(self):
         for input_str, output_str in zip(self.input_list, self.output_list):
-            self.assertEqual(hex_to_script(input_str), output_str)
+            self.assertEqual(compile_hex(input_str), output_str)
 
 if __name__ == '__main__':
     unittest.main()

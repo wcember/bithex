@@ -271,7 +271,7 @@ byte_dictionary = {
     '4e': '04',
 }
 
-def hex_to_script(hex_string):
+def compile_hex(hex_string):
     answer_list = []
     counter = 0
     end = len(hex_string)
