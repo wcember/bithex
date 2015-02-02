@@ -17,6 +17,10 @@ The current release of bithex is available through pip:
 	'OP_HASH256 6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000 OP_EQUAL'
 ```
 
+# Documentation #
+
+Documentation is available at [http://bithex.readthedocs.org/en/latest/index.html](http://bithex.readthedocs.org/en/latest/index.html)
+
 # Copyright and license #
 
 Copyright (c) 2015 William Cember

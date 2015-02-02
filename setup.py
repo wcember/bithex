@@ -9,5 +9,5 @@ setup(
     packages=['bithex',],
     license='MIT',
     url='https://github.com/wcember/bithex',
-    version='1.0',
+    version='1.0.1',
 )
