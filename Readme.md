@@ -12,9 +12,9 @@ The current release of bithex is available through pip:
 # Quickstart #
 
 ```python
-	>>> from bithex import compile_hex
-	>>> compile_hex('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087')
-	'OP_HASH256 6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000 OP_EQUAL'
+>>> from bithex import compile_hex
+>>> compile_hex('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087')
+'OP_HASH256 6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000 OP_EQUAL'
 ```
 
 # Documentation #
