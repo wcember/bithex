@@ -10,6 +10,8 @@ class CompileHexTests(unittest.TestCase):
         self.assertEqual(compile_hex('76a9146aeb2b63d0ce62bb527f3ab8833eb95c29b97ab088ac'), 'OP_DUP OP_HASH160 6aeb2b63d0ce62bb527f3ab8833eb95c29b97ab0 OP_EQUALVERIFY OP_CHECKSIG')
         self.assertEqual(compile_hex('76a914aafcc27a4a137976e1fbbed6314296b769793f2488ac'), 'OP_DUP OP_HASH160 aafcc27a4a137976e1fbbed6314296b769793f24 OP_EQUALVERIFY OP_CHECKSIG')
         self.assertEqual(compile_hex(''), '')
+    def test_hex_to_script_unicode_input(self):
+        self.assertEqual(compile_hex(u'aa01bb87'), 'OP_HASH256 bb OP_EQUAL')
     def test_InvalidHexError(self):
         self.assertRaises(InvalidHexError, compile_hex, 'invalid_string')
         self.assertRaises(InvalidHexError, compile_hex, ' ')
