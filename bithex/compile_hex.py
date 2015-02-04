@@ -14,7 +14,8 @@ def compile_hex(hex_string):
         hex_string: A string or unicode string that is the hex representation
             of a bitcoin script
 
-    Returns: A bitcoin script formatted as a string
+    Returns:
+        A bitcoin script formatted as a string
 
     Raises:
         InvalidHexError: Raised if the input hex_string doesn't compile to
