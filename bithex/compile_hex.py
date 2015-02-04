@@ -1,5 +1,8 @@
 from constants import *
 
+class InvalidHexError(Exception):
+    pass
+
 def compile_hex(hex_string):
     '''Compile a hex string into Script.
 
@@ -31,6 +34,5 @@ def compile_hex(hex_string):
                 answer_list.append(hex_dictionary[hex_string[counter: counter + 2]])
                 counter += 2
         except KeyError:
-            answer_list.append('_MISSING_KEY_')
-            counter += 2
+            raise InvalidHexError
     return ' '.join(answer_list)
