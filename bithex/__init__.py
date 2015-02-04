@@ -1,1 +1,1 @@
-from compile_hex import compile_hex
+from compile_hex import compile_hex, InvalidHexError

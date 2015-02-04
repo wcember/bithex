@@ -10,14 +10,15 @@ def compile_hex(hex_string):
     '''Compile a hex string into Script.
 
     Args:
-        hex_string: A string or unicode string that is the hex representation of
-            a bitcoin script
+        hex_string: A string or unicode string that is the hex representation
+            of a bitcoin script
 
     Returns: A bitcoin script formatted as a string
 
     Raises:
-        InvalidHexError: An error occured if the input hex_string doesn't
-            compile to valid Script.
+        InvalidHexError: Raised if the input hex_string doesn't compile to
+            valid Script.
+        TypeError: Raised if the input hex_string isn't a string
 
     Example:
         >>> compile_hex('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087')
