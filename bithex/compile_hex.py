@@ -1,7 +1,10 @@
 from constants import *
 
 class InvalidHexError(Exception):
-    pass
+    def __init__(self, value):
+        self.value = value
+    def __str__(self):
+        return self.value + 'does not compile into valid Script'
 
 def compile_hex(hex_string):
     '''Compile a hex string into Script.
@@ -22,6 +25,8 @@ def compile_hex(hex_string):
         >>> compile_hex('aa206fe28c0ab6f1b372c1a6a246ae63f74f931')
         InvalidHexError
     '''
+    if not isinstance(hex_string, basestring):
+        raise TypeError
     answer_list = []
     counter = 0
     end = len(hex_string)
@@ -38,7 +43,7 @@ def compile_hex(hex_string):
                 answer_list.append(hex_dictionary[hex_string[counter: counter + 2]])
                 counter += 2
         except KeyError:
-            raise InvalidHexError
+            raise InvalidHexError(hex_string)
         except AssertionError:
-            raise InvalidHexError
+            raise InvalidHexError(hex_string)
     return ' '.join(answer_list)
