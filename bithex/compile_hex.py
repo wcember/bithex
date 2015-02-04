@@ -7,17 +7,20 @@ def compile_hex(hex_string):
     '''Compile a hex string into Script.
 
     Args:
-      hex_string(str): A string or unicode string that is the hex
-        representation of a bitcoin script
+        hex_string: A string or unicode string that is the hex representation of
+            a bitcoin script
 
-    Returns:
-      str: bitcoin script
+    Returns: A bitcoin script formatted as a string
 
     Raises:
-      FILL THIS OUT
+        InvalidHexError: An error occured if the input hex_string doesn't
+            compile to valid Script.
 
     Example:
-      FILL THIS OUT
+        >>> compile_hex('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087')
+        'OP_HASH256 6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000 OP_EQUAL'
+        >>> compile_hex('aa206fe28c0ab6f1b372c1a6a246ae63f74f931')
+        InvalidHexError
     '''
     answer_list = []
     counter = 0
