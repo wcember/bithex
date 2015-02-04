@@ -27,6 +27,7 @@ def compile_hex(hex_string):
             if hex_string[counter: counter + 2] in byte_dictionary:
                 byte_length = int(byte_dictionary[hex_string[counter: counter + 2]], 16)
                 counter += 2
+                assert len(hex_string) >= counter + byte_length*2
                 address = hex_string[counter: counter + byte_length*2]
                 answer_list.append(address)
                 counter += byte_length*2
@@ -34,5 +35,7 @@ def compile_hex(hex_string):
                 answer_list.append(hex_dictionary[hex_string[counter: counter + 2]])
                 counter += 2
         except KeyError:
+            raise InvalidHexError
+        except AssertionError:
             raise InvalidHexError
     return ' '.join(answer_list)
