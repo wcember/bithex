@@ -14,5 +14,8 @@ class CompileHexTests(unittest.TestCase):
         self.assertRaises(InvalidHexError, compile_hex, 'invalid_string')
         self.assertRaises(InvalidHexError, compile_hex, ' ')
         self.assertRaises(InvalidHexError, compile_hex, 'aa206fe28c0ab6f1b372c1a6a246ae63f74f931')
+    def test_TypeError(self):
+        self.assertRaises(TypeError, compile_hex, 0)
+        self.assertRaises(TypeError, compile_hex, [])
 if __name__ == '__main__':
     unittest.main()
