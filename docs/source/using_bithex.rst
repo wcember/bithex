@@ -9,4 +9,4 @@ Functions
 Exceptions
 =========================
 
-.. autoexception:: bithex.compile_hex
+.. autoexception:: bithex.InvalidHexError
