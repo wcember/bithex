@@ -1,6 +1,7 @@
 from constants import *
 
 class InvalidHexError(Exception):
+    '''Raised by compile_hex if its input doesn't compile to valid Script.'''
     def __init__(self, value):
         self.value = value
     def __str__(self):
