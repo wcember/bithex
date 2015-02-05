@@ -21,7 +21,7 @@ The current release of bithex is available through pip:
 
 Documentation is available at [http://bithex.readthedocs.org/en/latest/index.html](http://bithex.readthedocs.org/en/latest/index.html)
 
-# Copyright and license #
+# Copyright and License #
 
 Copyright (c) 2015 William Cember
 
