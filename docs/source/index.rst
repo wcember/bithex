@@ -1,5 +1,5 @@
 
-githex: Compile Hex to Script
+bithex: Compile Hex to Script
 ==================================
 
 Contents:
