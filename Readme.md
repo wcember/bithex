@@ -1,6 +1,6 @@
 # Bithex #
 
-Bithex is python library to compile hex into Script, the bitcoin scripting language.
+Bithex is a Python 2 library to compile hex into Script, the bitcoin scripting language.
 
 Bithex is currently in alpha and is in the process of being tested and improved.
 
