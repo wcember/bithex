@@ -1,6 +1,7 @@
 import unittest
 
 from compile_hex import *
+from constants import *
 
 class CompileHexTests(unittest.TestCase):
     def test_hex_to_script(self):
@@ -36,17 +37,25 @@ class CompileHexTests(unittest.TestCase):
 
 class ClassifyScriptTests(unittest.TestCase):
     def test_classify_script_doc_string(self):
-        self.assertEqual(classify_script('OP_HASH256 6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000 OP_EQUAL'),
-                'P2PKH')
         self.assertEqual(classify_script('OP_DUP OP_HASH160 a134408afa258a50ed7a1d9817f26b63cc9002cc OP_EQUALVERIFY OP_CHECKSIG'),
-                'P2SH')
+                standard_transactions[0])
+        self.assertEqual(classify_script('OP_HASH160 54c557e07dde5bb6cb791c7a540e0a4796f5e97e OP_EQUAL'),
+                standard_transactions[1])
+        self.assertEqual(classify_script('OP_0 a134408afa258a50ed7a1d9817f26b63cc9002cc a134408afa258a50ed7a1d9817f26b63cc9002cc 2 a134408afa258a50ed7a1d9817f26b63cc9002cc a134408afa258a50ed7a1d9817f26b63cc9002cc a134408afa258a50ed7a1d9817f26b63cc9002cc 3 OP_CHECKMULTISIG'),
+                standard_transactions[2])
+        self.assertEqual(classify_script('04b0bd634234abbb1ba1e986e884185c61cf43e001f9137f23c2c409273eb16e6537a576782eba668a7ef8bd3b3cfb1edb7117ab65129b8a2e681f3c1e0908ef7b OP_CHECKSIG'),
+                standard_transactions[3])
+        self.assertEqual(classify_script('OP_RETURN abcdef123456'),
+                standard_transactions[4])
+        self.assertEqual(classify_script('OP_HASH256 6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000 OP_EQUAL'),
+                'nonstandard transaction')
 
 class ClassifyHexTests(unittest.TestCase):
     def test_classify_hex_doc_string(self):
-        self.assertEqual(classify_script('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087'),
-                'P2PKH')
         self.assertEqual(classify_script('76a914a134408afa258a50ed7a1d9817f26b63cc9002cc88ac'),
-                'P2SH')
+                standard_transactions[0])
+        self.assertEqual(classify_script('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087'),
+                'nonstandard transaction')
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,3 +1,5 @@
+import re
+
 from constants import *
 
 class InvalidHexError(Exception):
@@ -73,10 +75,10 @@ def classify_hex(hex_string):
             valid Script.
 
     Examples:
-        >>> classify_hex_script('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087')
-        'P2PKH'
         >>> classify_hex_script('76a914a134408afa258a50ed7a1d9817f26b63cc9002cc88ac')
-        'P2SH'
+        'P2PKH'
+        >>> classify_hex_script('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087')
+        'nonstandard transaction'
     '''
     if not isinstance(hex_string, basestring):
         raise TypeError
@@ -97,11 +99,29 @@ def classify_script(script):
         TypeError: Raised if the input script isn't a string.
 
     Examples:
-        >>> classify_script('OP_HASH256 6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000 OP_EQUAL')
-        'P2PKH'
         >>> classify_script('OP_DUP OP_HASH160 a134408afa258a50ed7a1d9817f26b63cc9002cc OP_EQUALVERIFY OP_CHECKSIG')
+        'P2PKH'
+        >>> classify_script(OP_HASH160 54c557e07dde5bb6cb791c7a540e0a4796f5e97e OP_EQUAL)
         'P2SH'
+        >>> classify_script('OP_HASH256 6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000 OP_EQUAL')
+        'nonstandard transaction'
     '''
     if not isinstance(script, basestring):
         raise TypeError
-    word_list = script.split()
+    P2PKH_regex = re.compile('OP_DUP OP_HASH160 [abcdef0123456789]+ OP_EQUALVERIFY OP_CHECKSIG')
+    P2SH_regex = re.compile('OP_HASH160 .* OP_EQUAL')
+    multisig_regex = re.compile('OP_FALSE|OP_0 [abcdef0123456789 ]+ OP_CHECKMULTISIG')
+    pubkey_regex = re.compile('[abcdef0123456789]+ OP_CHECKSIG')
+    null_data_regex = re.compile('OP_RETURN [abcdef0123456789]+')
+    regex_list = [
+            P2PKH_regex,
+            P2SH_regex,
+            multisig_regex,
+            pubkey_regex,
+            null_data_regex,
+    ]
+    for index, regex in enumerate(regex_list):
+        if regex.match(script):
+            return standard_transactions[index]
+    else:
+        return 'nonstandard transaction'

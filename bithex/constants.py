@@ -270,3 +270,11 @@ byte_dictionary = {
     '4d': '02',
     '4e': '04',
 }
+
+standard_transactions = [
+    'P2PKH',
+    'P2SH',
+    'Multisig',
+    'Pubkey',
+    'Null Data',
+]
