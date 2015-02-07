@@ -5,7 +5,7 @@ Functions
 =========================
 
 .. autofunction:: bithex.compile_hex
-.. autofunction:: bithex.classify_hex
+		  bithex.classify_hex
 
 Exceptions
 =========================
