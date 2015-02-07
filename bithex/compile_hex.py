@@ -12,15 +12,15 @@ def compile_hex(hex_string):
 
     Args:
         hex_string: A string or unicode string that is the hex representation
-            of a bitcoin script
+            of a bitcoin script.
 
     Returns:
-        str: A bitcoin script formatted as a string
+        str: A bitcoin script formatted as a string.
 
     Raises:
         InvalidHexError: Raised if the input hex_string doesn't compile to
             valid Script.
-        TypeError: Raised if the input hex_string isn't a string
+        TypeError: Raised if the input hex_string isn't a string.
 
     Examples:
         >>> compile_hex('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087')
@@ -56,18 +56,18 @@ def compile_hex(hex_string):
     return ' '.join(answer_list)
 
 def classify_hex(hex_string):
-    '''Classify the transaction type of a hex string per
-            https://bitcoin.org/en/developer-guide#standard-transactions
+    '''Classify the transaction type of a hex string.
 
     Args:
         hex_string: A string or unicode string that is the hex representation
-            of a bitcoin script
+            of a bitcoin script.
 
     Returns:
-        str: The transaction type of the hex string
+        str: The transaction type of the hex string per
+            https://bitcoin.org/en/developer-guide#standard-transactions.
 
     Raises:
-        TypeError: Raised if the input hex_string isn't a string
+        TypeError: Raised if the input hex_string isn't a string.
 
     Examples:
         >>> classify_hex_script('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087')
