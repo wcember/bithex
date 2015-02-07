@@ -101,7 +101,7 @@ def classify_script(script):
     Examples:
         >>> classify_script('OP_DUP OP_HASH160 a134408afa258a50ed7a1d9817f26b63cc9002cc OP_EQUALVERIFY OP_CHECKSIG')
         'P2PKH'
-        >>> classify_script(OP_HASH160 54c557e07dde5bb6cb791c7a540e0a4796f5e97e OP_EQUAL)
+        >>> classify_script('OP_HASH160 54c557e07dde5bb6cb791c7a540e0a4796f5e97e OP_EQUAL')
         'P2SH'
         >>> classify_script('OP_HASH256 6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000 OP_EQUAL')
         'nonstandard transaction'
