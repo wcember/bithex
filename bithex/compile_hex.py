@@ -22,7 +22,7 @@ def compile_hex(hex_string):
             valid Script.
         TypeError: Raised if the input hex_string isn't a string
 
-    Example:
+    Examples:
         >>> compile_hex('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087')
         'OP_HASH256 6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000 OP_EQUAL'
         >>> compile_hex('76a914a134408afa258a50ed7a1d9817f26b63cc9002cc88ac')
