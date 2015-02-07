@@ -68,6 +68,8 @@ def classify_hex(hex_string):
 
     Raises:
         TypeError: Raised if the input hex_string isn't a string.
+        InvalidHexError: Raised if the input hex_string doesn't compile to
+            valid Script.
 
     Examples:
         >>> classify_hex_script('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087')
@@ -81,6 +83,24 @@ def classify_hex(hex_string):
     return classify_transaction(script)
 
 def classify_script(script):
+    '''Classify the transaction type of a script.
+
+    Args:
+        script: A bitcoin script.
+
+    Returns:
+        str: The transaction type of the hex string per
+            https://bitcoin.org/en/developer-guide#standard-transactions.
+
+    Raises:
+        TypeError: Raised if the input script isn't a string.
+
+    Examples:
+        >>> classify_script('OP_HASH256 6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000 OP_EQUAL')
+        'P2PKH'
+        >>> classify_script('OP_DUP OP_HASH160 a134408afa258a50ed7a1d9817f26b63cc9002cc OP_EQUALVERIFY OP_CHECKSIG')
+        'P2SH'
+    '''
     if not isinstance(script, basestring):
         raise TypeError
     word_list = script.split()

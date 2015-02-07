@@ -1,1 +1,4 @@
-from compile_hex import compile_hex, classify_hex, InvalidHexError
+from compile_hex import compile_hex
+from compile_hex import classify_hex
+from compile_hex import classify_script
+from compile_hex import InvalidHexError
