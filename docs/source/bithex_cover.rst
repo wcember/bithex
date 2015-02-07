@@ -1,9 +1,7 @@
 Bithex
 **********
 
-Bithex is a Python 2 library to compile hex into Script, the bitcoin scripting language.
-
-Bithex is currently in alpha and is in the process of being tested and improved.
+Bithex is a Python 2 library to analyze bitcoin scripts.
 
 ****************
 Installation
