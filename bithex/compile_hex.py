@@ -55,7 +55,7 @@ def compile_hex(hex_string):
             raise InvalidHexError(hex_string)
     return ' '.join(answer_list)
 
-def classify_hex_script(hex_string):
+def classify_hex(hex_string):
     '''Classify the transaction type of a hex string per
             https://bitcoin.org/en/developer-guide#standard-transactions
 
