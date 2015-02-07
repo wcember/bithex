@@ -1,6 +1,6 @@
 import unittest
 
-from compile_hex import compile_hex, InvalidHexError
+from compile_hex import *
 
 class CompileHexTests(unittest.TestCase):
     def test_hex_to_script(self):
@@ -33,6 +33,20 @@ class CompileHexTests(unittest.TestCase):
     def test_TypeError(self):
         self.assertRaises(TypeError, compile_hex, 0)
         self.assertRaises(TypeError, compile_hex, [])
+
+class ClassifyScriptTests(unittest.TestCase):
+    def test_classify_script_doc_string(self):
+        self.assertEqual(classify_script('OP_HASH256 6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000 OP_EQUAL'),
+                'P2PKH')
+        self.assertEqual(classify_script('OP_DUP OP_HASH160 a134408afa258a50ed7a1d9817f26b63cc9002cc OP_EQUALVERIFY OP_CHECKSIG'),
+                'P2SH')
+
+class ClassifyHexTests(unittest.TestCase):
+    def test_classify_hex_doc_string(self):
+        self.assertEqual(classify_script('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087'),
+                'P2PKH')
+        self.assertEqual(classify_script('76a914a134408afa258a50ed7a1d9817f26b63cc9002cc88ac'),
+                'P2SH')
 
 if __name__ == '__main__':
     unittest.main()
