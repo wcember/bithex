@@ -83,7 +83,7 @@ def classify_hex(hex_string):
     if not isinstance(hex_string, basestring):
         raise TypeError
     script = compile_hex(hex_string)
-    return classify_transaction(script)
+    return classify_script(script)
 
 def classify_script(script):
     '''Classify the transaction type of a script.
