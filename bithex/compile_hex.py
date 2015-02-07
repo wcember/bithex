@@ -56,7 +56,8 @@ def compile_hex(hex_string):
     return ' '.join(answer_list)
 
 def classify_hex_script(hex_string):
-    '''Classify the transaction type of a hex string.
+    '''Classify the transaction type of a hex string per
+            https://bitcoin.org/en/developer-guide#standard-transactions
 
     Args:
         hex_string: A string or unicode string that is the hex representation
@@ -68,9 +69,11 @@ def classify_hex_script(hex_string):
     Raises:
         TypeError: Raised if the input hex_string isn't a string
 
-    Example:
-        >>> classify_hex_script('76a914a134408afa258a50ed7a1d9817f26b63cc9002cc88ac')
+    Examples:
+        >>> classify_hex_script('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087')
         'P2PKH'
+        >>> classify_hex_script('76a914a134408afa258a50ed7a1d9817f26b63cc9002cc88ac')
+        'P2SH'
     '''
     if not isinstance(hex_string, basestring):
         raise TypeError
