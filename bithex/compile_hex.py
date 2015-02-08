@@ -94,13 +94,8 @@ def classify_script(script):
     Returns:
         str: The transaction type of the hex string per
             https://bitcoin.org/en/developer-guide#standard-transactions.
-            The following are the values that can be returned:\n
-                -'P2PKH'\n
-                -'P2SH'\n
-                -'Multisig'\n
-                -'Pubkey'\n
-                -'Null Data'\n
-                -'nonstandard transaction'
+            The following are the values that can be returned: 'P2PKH','P2SH',
+            'Multisig', 'Pubkey', 'Null Data', 'nonstandard transaction'.
 
     Raises:
         TypeError: Raised if the input script isn't a string.
