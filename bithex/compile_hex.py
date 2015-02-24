@@ -42,17 +42,18 @@ def compile_hex(hex_string):
     end = len(hex_string)
     while counter < end:
         try:
-            if hex_string[counter: counter + 2] in byte_dictionary:
-                byte_length = int(byte_dictionary[hex_string[counter: counter + 2]], 16)
+            next_word = hex_string[counter: counter + 2]
+            next_word_int = int(next_word, 16)
+            if 0 < next_word_int < 76:
                 counter += 2
-                assert len(hex_string) >= counter + byte_length*2
-                address = hex_string[counter: counter + byte_length*2]
+                assert len(hex_string) >= counter + next_word_int*2
+                address = hex_string[counter: counter + next_word_int*2]
                 answer_list.append(address)
-                counter += byte_length*2
+                counter += next_word_int*2
             else:
-                answer_list.append(hex_dictionary[hex_string[counter: counter + 2]])
+                answer_list.append(hex_dictionary[next_word])
                 counter += 2
-        except KeyError:
+        except ValueError:
             raise InvalidHexError(hex_string)
         except AssertionError:
             raise InvalidHexError(hex_string)
