@@ -68,7 +68,7 @@ class ClassifyHexTests(unittest.TestCase):
     def test_classify_hex_doc_string(self):
         self.assertEqual(classify_hex('76a914a134408afa258a50ed7a1d9817f26b63cc9002cc88ac'),
                 standard_transactions[0])
-        self.assertEqual(classify_hex('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087'),
+        self.assertEqual(classify_hex('aa106fe28c0ab6f1b372c1a6a246ae63f74f87'),
                 'nonstandard transaction')
 
 if __name__ == '__main__':
