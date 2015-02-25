@@ -78,9 +78,9 @@ def classify_hex(hex_string):
             valid Script.
 
     Examples:
-        >>> classify_hex_script('76a914a134408afa258a50ed7a1d9817f26b63cc9002cc88ac')
+        >>> classify_hex('76a914a134408afa258a50ed7a1d9817f26b63cc9002cc88ac')
         'P2PKH'
-        >>> classify_hex_script('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087')
+        >>> classify_hex('aa206fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d619000000000087')
         'nonstandard transaction'
     '''
     if not isinstance(hex_string, basestring):
