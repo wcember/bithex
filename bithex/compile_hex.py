@@ -59,6 +59,7 @@ def compile_hex(hex_string):
             raise InvalidHexError(hex_string)
     return ' '.join(answer_list)
 
+
 def classify_hex(hex_string):
     '''Classify the transaction type of a hex string.
 
@@ -85,6 +86,7 @@ def classify_hex(hex_string):
         raise TypeError
     script = compile_hex(hex_string)
     return classify_script(script)
+
 
 def classify_script(script):
     '''Classify the transaction type of a script.
