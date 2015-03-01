@@ -13,7 +13,7 @@ The current release of bithex is available through pip:
 >>> import bithex
 >>> bithex.compile_hex('76a914a134408afa258a50ed7a1d9817f26b63cc9002cc88ac')
 'OP_DUP OP_HASH160 a134408afa258a50ed7a1d9817f26b63cc9002cc OP_EQUALVERIFY OP_CHECKSIG'
->>> bithex.classify_script('OP_DUP OP_HASH160 a134408afa258a50f26b63cc9002cc OP_EQUALVERIFY OP_CHECKSIG')
+>>> bithex.classify_script('OP_DUP OP_HASH160 a134408af26b63cc9002cc OP_EQUALVERIFY OP_CHECKSIG')
 'P2PKH'
 ```
 
