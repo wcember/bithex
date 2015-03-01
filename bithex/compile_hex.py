@@ -1,12 +1,15 @@
 import constants
 
+
 class InvalidHexError(Exception):
     '''Raised by compile_hex, classify_hex if the input doesn't compile to
         valid Script.'''
     def __init__(self, value):
         self.value = value
+
     def __str__(self):
         return self.value + ' does not compile into valid Script'
+
 
 def compile_hex(hex_string):
     '''Compile a hex string into Script.
