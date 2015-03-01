@@ -1,4 +1,4 @@
-from constants import *
+import constants
 
 class InvalidHexError(Exception):
     '''Raised by compile_hex, classify_hex if the input doesn't compile to
@@ -49,7 +49,7 @@ def compile_hex(hex_string):
                 answer_list.append(address)
                 counter += next_word_int*2
             else:
-                answer_list.append(HEX_DICTIONARY[next_word])
+                answer_list.append(constants.HEX_DICTIONARY[next_word])
                 counter += 2
         except ValueError:
             raise InvalidHexError(hex_string)
@@ -113,7 +113,7 @@ def classify_script(script):
     '''
     if not isinstance(script, basestring):
         raise TypeError
-    for key, regex in REGEX_PATTERNS.iteritems():
+    for key, regex in constants.REGEX_PATTERNS.iteritems():
         if regex.match(script):
             return key
     else:
