@@ -1,6 +1,6 @@
 import re
 
-hex_dictionary = {
+HEX_DICTIONARY = {
     '00': 'OP_FALSE',
     '4c': 'OP_PUSHDATA1',
     '4d': 'OP_PUSHDATA2',
@@ -117,7 +117,7 @@ hex_dictionary = {
     'b9': 'OP_NOP9',
 }
 
-standard_transactions = [
+STANDARD_TRANSACTION_LIST = [
     'P2PKH',
     'P2SH',
     'Multisig',

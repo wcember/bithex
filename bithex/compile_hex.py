@@ -49,7 +49,7 @@ def compile_hex(hex_string):
                 answer_list.append(address)
                 counter += next_word_int*2
             else:
-                answer_list.append(hex_dictionary[next_word])
+                answer_list.append(HEX_DICTIONARY[next_word])
                 counter += 2
         except ValueError:
             raise InvalidHexError(hex_string)
