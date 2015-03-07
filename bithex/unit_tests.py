@@ -63,6 +63,14 @@ class ClassifyScriptTests(unittest.TestCase):
                 STANDARD_TRANSACTION_LIST[2])
         self.assertEqual(classify_script('OP_FALSE 0 a 0 2 b OP_5 OP_CHECKMULTISIG'),
                 STANDARD_TRANSACTION_LIST[2])
+        self.assertEqual(compile_hex('aa106fe28c0ab6f1b372c1a6a246ae63f74f87'),
+                'OP_HASH256 6fe28c0ab6f1b372c1a6a246ae63f74f OP_EQUAL')
+        self.assertEqual(compile_hex('76a90a134408afa258a50ed7a188ac'),
+                'OP_DUP OP_HASH160 134408afa258a50ed7a1 OP_EQUALVERIFY OP_CHECKSIG')
+        self.assertEqual(compile_hex('0504b0bd6342ac'),
+                '04b0bd6342 OP_CHECKSIG')
+        self.assertRaises(InvalidHexError, compile_hex,
+                'aa206fe28c0ab6f1b372c1a6a246ae63f74f931')
 
 class ClassifyHexTests(unittest.TestCase):
     def test_classify_hex_doc_string(self):

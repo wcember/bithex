@@ -30,7 +30,7 @@ def compile_hex(hex_string):
         >>> compile_hex('aa106fe28c0ab6f1b372c1a6a246ae63f74f87')
         'OP_HASH256 6fe28c0ab6f1b372c1a6a246ae63f74f OP_EQUAL'
         >>> compile_hex('76a90a134408afa258a50ed7a188ac')
-        'OP_DUP OP_HASH160 a134408afa258a50ed7a1 OP_EQUALVERIFY OP_CHECKSIG'
+        'OP_DUP OP_HASH160 134408afa258a50ed7a1 OP_EQUALVERIFY OP_CHECKSIG'
         >>> compile_hex('0504b0bd6342ac')
         '04b0bd6342 OP_CHECKSIG'
         >>> compile_hex('aa206fe28c0ab6f1b372c1a6a246ae63f74f931')
