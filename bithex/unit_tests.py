@@ -75,6 +75,12 @@ class ClassifyScriptTests(unittest.TestCase):
                 'P2PKH')
         self.assertEqual(classify_hex('aa106fe28c0ab6f1b372c1a6a246ae63f74f87'),
                 'nonstandard transaction')
+        self.assertEqual(classify_script('OP_DUP OP_HASH160 a13 OP_EQUALVERIFY OP_CHECKSIG'),
+                'P2PKH')
+        self.assertEqual(classify_script('OP_HASH160 54c557e07dde5bb6cb791c7a540e OP_EQUAL'),
+                'P2SH')
+        self.assertEqual(classify_script('OP_HASH256 6fe28c0ab6f1b372c1a6a246ae63 OP_EQUAL'),
+                'nonstandard transaction')
 
 class ClassifyHexTests(unittest.TestCase):
     def test_classify_hex_doc_string(self):
